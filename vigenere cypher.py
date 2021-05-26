@@ -3,17 +3,32 @@ from string import ascii_uppercase
 
 
 def random_string(length):
+    """
+    Creates a random string from uppercase alphabet letters
+    :param length: the length of the string to be created
+    :return: a string of characters, the random string
+    """
     letters = ascii_uppercase
     return ''.join(choice(letters) for i in range(length))
 
 
 def generate_list(some_list):
+    """
+    Generates a list of possible keys. The list is of size 80
+    :param some_list: an empty list to which the random keys will be appended
+    :return: a string of randomly generated possible keys
+    """
     for i in range(80):
         some_list.append(random_string(5))
     return some_list
 
 
 def select_key(generated_list):
+    """
+    Selects the keyword to be used from a list of random keywords
+    :param generated_list: the list from which the keyword is selected
+    :return: the keyword, from which the key will be generated
+    """
     return choice(generated_list)
 
 
@@ -53,9 +68,9 @@ if __name__ == '__main__':
     sequence = []
     print(generate_list(sequence), len(sequence))
     keyword = select_key(sequence)
-    print("Keyword -->", keyword, type(keyword), sequence.index(keyword))
+    print("Keyword -->", keyword, type(keyword), sequence.index(keyword))  # Prints the chosen keyword, its type & index
     KEY = generate_key(user_input, keyword)
-    print("KEY-->", KEY)
+    print("KEY-->", KEY)   # prints the key for encryption and decryption
     text = cipher(user_input, KEY)
     print("Cipher Text: ", text)
     print("Decrypted Text", original_text(text, KEY))
