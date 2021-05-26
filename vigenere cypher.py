@@ -33,6 +33,12 @@ def select_key(generated_list):
 
 
 def generate_key(string, key):
+    """
+    Generates a key from the keyword. The key should be as long as the string to be encrypted
+    :param string: the string to be encrypted
+    :param key: the keyword from which the key will be generated
+    :return: the key
+    """
     key = list(key)
     if len(string) == len(key):
         return key
